@@ -1,4 +1,6 @@
 # OpenID Connect sample provider
+[![Build Status](https://travis-ci.org/hiyosi/tiny-oidc-provider.png)](https://travis-ci.org/hiyosi/tiny-oidc-provider)
+
 
 OpenID Connect Implicit Flow を実装したプロバイダのサンプルアプリケーションです。
 
