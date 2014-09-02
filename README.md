@@ -1,13 +1,22 @@
 # OpenID Connect sample provider
 
+OpenID Connect Implicit Flow を実装したプロバイダのサンプルアプリケーションです。
+
+## インストール
+
+````
+ $ git clone https://github.com/hiyosi/tiny-oidc-provider.git
+
+ $ bundle install
+````
 
 ## 必要な事前準備
 - 鍵の生成
 
 ````
- $ mkdir -p ${RAILS_ROOT}/config/keys
+ $ mkdir config/keys
 
- $ cd ${RAILS_ROOT}/config/keys
+ $ cd config/keys
 
  $ openssl genrsa 2048 > test.pem
 
@@ -29,3 +38,20 @@ Rails.application.configure do
 end
 
 ````
+
+## 動作確認
+
+1. Rails アプリケーションの起動
+
+````
+ $ bundle exec rake db:migrate
+ $ bundle exec rails s
+````
+
+2. ``` http://localhost:3000/applications ``` にアクセスして RP を登録して下さい。
+
+3. sign_in 画面にリダイレクトされるので、その画面から sign_up のリンクをクリックしユーザを登録して下さい。
+
+4. ユーザ登録完了後、RP の登録ページに戻ると思いますので、自身のRPを登録して下さい。
+
+
