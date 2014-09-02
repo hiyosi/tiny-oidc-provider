@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'url_safe_base64'
 
+gem 'coveralls', require: false
 gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
