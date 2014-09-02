@@ -4,6 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/hiyosi/tiny-oidc-provider/badges/gpa.svg)](https://codeclimate.com/github/hiyosi/tiny-oidc-provider)
 
 OpenID Connect Implicit Flow を実装したプロバイダのサンプルアプリケーションです。
+http://openid-foundation-japan.github.io/openid-connect-core-1_0.ja.html
 
 ## インストール
 
