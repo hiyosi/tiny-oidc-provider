@@ -99,7 +99,7 @@ Authorization リクエストに成功すると、以下のパラメータがリ
 |exp        |IDトークンが執行する時刻。整数値。 |
 |iat        |IDトークンが発行された時刻。整数値。 |
 |nonce      |[`nonce`を指定したリクエストの場合のみ] リプレイ攻撃対策として使われる文字列。 |
-|userinfo   |UserInfoから返却される結果とと同等のclaimをIDトークン内に含めています |
+|userinfo   |UserInfoから返却される結果と同等のclaimsをIDトークン内に含めています |
 
 
 
