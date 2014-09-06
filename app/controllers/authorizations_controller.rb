@@ -10,9 +10,17 @@ class AuthorizationsController < ApplicationController
     @req = OIDC::Request.new(params)
     if @req.valid?
       render :new
+      return
+    end
+
+    if params[:redirect_uri]
+      response.location = params[:redirect_uri] + @req.error.response
+      render :nothing => true, :status => 302
+      return
     else
-      #MEMO: redirect_uri が正しければエラーレスポンスはリダイレクトしてあげたほうがよい
-      render json: @req.error
+      render json:
+        {:error => @req.error.name,
+        :error_description => @req.error.description}
     end
   end
 

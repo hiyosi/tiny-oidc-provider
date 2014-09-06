@@ -15,11 +15,6 @@ class AuthorizationsControllerTest < ActionController::TestCase
     sign_in FactoryGirl.create(:test_user)
   end
 
-  test 'controller has new action' do
-    get :new
-    assert_equal 200, response.status
-  end
-
   test 'new action should render "new" template. by correct arguments.' do
     get :new, {
       'response_type' => 'id_token',
@@ -31,6 +26,18 @@ class AuthorizationsControllerTest < ActionController::TestCase
     }
     assert_equal 200, response.status
     assert_template :new
+  end
+
+  test 'new action should redirect error. when redirect_uri present.' do
+    get :new, {
+      'redirect_uri' => @application.redirect_uri,
+    }
+    assert_equal 302, response.status
+  end
+
+  test 'new action should render error. when no redirect_uri' do
+    get :new
+    assert_equal 200, response.status
   end
 
   test 'controller has create action' do

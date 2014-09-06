@@ -6,8 +6,6 @@ require 'oidc/config'
 module OIDC
   class Request
 
-    include OIDC::ErrorResponse
-
     # @return [String] クライアントID
     attr_reader :client_id
 
@@ -72,7 +70,7 @@ module OIDC
       @error = nil
       [:response_type, :redirect_uri, :scope, :state, :nonce].each do |key|
         break if @error
-        @error = send "error_#{key}" unless send "validate_#{key}"
+        @error = OIDC::ErrorResponse.send("build_#{key}_error") unless send "validate_#{key}"
       end
     end
 
