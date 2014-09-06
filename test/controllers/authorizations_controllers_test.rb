@@ -30,9 +30,22 @@ class AuthorizationsControllerTest < ActionController::TestCase
 
   test 'new action should redirect error. when redirect_uri present.' do
     get :new, {
+      'client_id' => @application.client_id,
       'redirect_uri' => @application.redirect_uri,
     }
     assert_equal 302, response.status
+  end
+
+  test 'new action should render error. when invalid redirect_uri .' do
+    get :new, {
+      'response_type' => 'id_token',
+      'client_id' => 'foobarbaz',
+      'redirect_uri' => @application.redirect_uri,
+    }
+    assert_equal 200, response.status
+    body = JSON.parse(response.body).with_indifferent_access
+    assert_equal 'invalid_request', body[:error]
+    assert_equal 'invalid redirect_uri', body[:error_description]
   end
 
   test 'new action should render error. when no redirect_uri' do

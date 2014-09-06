@@ -9,7 +9,10 @@ module OIDC
     end
 
     def response
-      "#error={name}&error_description=#{description}"
+      {
+        :error => name,
+        :error_description => description
+      }
     end
 
     def self.build_response_type_error
