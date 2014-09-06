@@ -15,11 +15,9 @@ class AuthorizationsController < ApplicationController
 
     if (params[:redirect_uri].present? &&
         Application.has_redirect_uri(params[:client_id], params[:redirect_uri]))
-      redirect_to params[:redirect_uri] + '#' + @req.error.response.to_param
+      redirect_to @req.error.with_fragment(params[:redirect_uri])
     else
-      render json:
-        {:error => @req.error.name,
-        :error_description => @req.error.description}
+      render json: @req.error.response
     end
   end
 
