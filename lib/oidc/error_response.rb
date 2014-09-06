@@ -8,6 +8,12 @@ module OIDC
       @description = description
     end
 
+    def with_fragment(redirect_uri)
+      uri = URI.parse(redirect_uri)
+      uri.fragment=(response.to_param)
+      uri.to_s
+    end
+
     def response
       {
         :error => name,
