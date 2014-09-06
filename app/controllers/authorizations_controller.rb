@@ -28,8 +28,7 @@ class AuthorizationsController < ApplicationController
     res = OIDC::Response.new(params)
     res.owner = current_user
 
-    response.location = res.build_response
-    render :nothing => true, :status => 302
-  end
+    redirect_to res.build_response
+   end
 
 end
