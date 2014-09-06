@@ -78,7 +78,7 @@ class OIDC::ResponseTest < Minitest::Test
     assert header[:typ].present?
     assert header[:alg].present?
     assert payload[:sub].present?
-    assert payload[:user_info].present?
+    assert payload[:userinfo].present?
     assert public_key.verify('sha256', signature, input)
   end
 end

@@ -70,13 +70,13 @@ module OIDC
           :exp => exp,
           :iat => issue_at,
           :nonce => @nonce,
-          :user_info => user_info
+          :userinfo => userinfo
 
       }
     end
 
     # ownerの情報に対してscopeで指定された情報のみ返却
-    def user_info
+    def userinfo
       owner.as_json scopes
     end
   end
