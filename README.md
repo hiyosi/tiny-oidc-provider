@@ -1,5 +1,5 @@
 # OpenID Connect sample provider
-[![Build Status](https://travis-ci.org/hiyosi/tiny-oidc-provider.png)](https://travis-ci.org/hiyosi/tiny-oidc-provider)
+[![Build Status](https://travis-ci.org/hiyosi/tiny-oidc-provider.svg?branch=master)](https://travis-ci.org/hiyosi/tiny-oidc-provider)
 [![Coverage Status](https://img.shields.io/coveralls/hiyosi/tiny-oidc-provider.svg)](https://coveralls.io/r/hiyosi/tiny-oidc-provider?branch=master)
 [![Code Climate](https://codeclimate.com/github/hiyosi/tiny-oidc-provider/badges/gpa.svg)](https://codeclimate.com/github/hiyosi/tiny-oidc-provider)
 
