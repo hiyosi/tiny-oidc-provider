@@ -51,42 +51,57 @@ class OIDC::RequestTest < Minitest::Test
     @params[:response_type] = 'token'
     request = OIDC::Request.new(@params)
     assert_equal false, request.valid?
+    assert_equal 'invalid_request', request.error.name
+    assert_equal 'invalid response_type', request.error.description
   end
 
   def test_valid_should_be_false_when_response_type_is_nil
-    @params[:response_type] = 'token'
+    @params[:response_type] = nil
     request = OIDC::Request.new(@params)
     assert_equal false, request.valid?
+    assert_equal 'invalid_request', request.error.name
+    assert_equal 'invalid response_type', request.error.description
   end
 
   def test_valid_should_be_false_when_invalid_client_id
     @params[:client_id] = 'client_id'
     request = OIDC::Request.new(@params)
     assert_equal false, request.valid?
+    assert_equal 'invalid_request', request.error.name
+    # because redirect_uri does not match client_id.
+    assert_equal 'invalid redirect_uri', request.error.description
   end
 
   def test_valid_should_be_false_when_invalid_redirect_uri
     @params[:redirect_uri] = 'redirect_uri'
     request = OIDC::Request.new(@params)
     assert_equal false, request.valid?
+    assert_equal 'invalid_request', request.error.name
+    assert_equal 'invalid redirect_uri', request.error.description
   end
 
   def test_valid_should_be_false_when_invalid_scope
     @params[:scope] = 'foo'
     request = OIDC::Request.new(@params)
     assert_equal false, request.valid?
+    assert_equal 'invalid_scope', request.error.name
+    assert_equal 'invalid scope', request.error.description
   end
 
   def test_valid_should_be_false_when_state_is_nil
     @params[:state] = nil
     request = OIDC::Request.new(@params)
     assert_equal false, request.valid?
+    assert_equal 'invalid_request', request.error.name
+    assert_equal 'state parameter is required', request.error.description
   end
 
   def test_valid_should_be_false_when_nonce_is_nil
     @params[:nonce] = nil
     request = OIDC::Request.new(@params)
     assert_equal false, request.valid?
+    assert_equal 'invalid_request', request.error.name
+    assert_equal 'nonce parameter is required', request.error.description
   end
 
 end
