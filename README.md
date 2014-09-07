@@ -85,7 +85,6 @@ Authorization リクエストに成功すると、以下のパラメータがリ
 |token_type    |`Bearer`固定|
 |id_token      |IDトークン文字列。|
 |state         |認可リクエストで`state`を指定していた場合のみ、その値が格納される。|
-|expires_in    |応答内容の有効期限(秒)を表す整数値。|
 
 
 ### IDトークンに含まれるクレーム
