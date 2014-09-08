@@ -12,7 +12,9 @@ http://openid-foundation-japan.github.io/openid-connect-core-1_0.ja.html
 ````
  $ git clone https://github.com/hiyosi/tiny-oidc-provider.git
 
- $ bundle install
+ $ cd tiny-oidc-provider
+ 
+ $ bundle install --path=vendor/bundle
 ````
 
 ## 必要な事前準備
