@@ -100,7 +100,15 @@ Authorization リクエストに成功すると、以下のパラメータがリ
 |exp        |IDトークンが執行する時刻。整数値。 |
 |iat        |IDトークンが発行された時刻。整数値。 |
 |nonce      |[`nonce`を指定したリクエストの場合のみ] リプレイ攻撃対策として使われる文字列。 |
-|userinfo   |UserInfoから返却される結果と同等のclaimsをIDトークン内に含めています |
+|name       |[`scopeにprofile`を指定したリクエストの場合のみ] End-User の表示用フルネーム。 |
+|given_name |[`scopeにprofile`を指定したリクエストの場合のみ] End-User の名 (given name / first name)。 |
+|family_name |[`scopeにprofile`を指定したリクエストの場合のみ] End-User の姓 (surname / last name)。 |
+|given_name_kana |[`scopeにprofile`を指定したリクエストの場合のみ] End-User の名(かな)。 |
+|family_name_kana |[`scopeにprofile`を指定したリクエストの場合のみ] End-User の姓(かな)。 |
+|gender     |[`scopeにprofile`を指定したリクエストの場合のみ] End-User の性別。 |
+|email     |[`scopeにemail`を指定したリクエストの場合のみ] End-User の選好する Email アドレス。 |
+
+
 
 
 
