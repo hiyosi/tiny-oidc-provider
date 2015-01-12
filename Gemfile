@@ -49,6 +49,10 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-unicorn-nginx', '~> 3.1.0'
+
 end
 
 

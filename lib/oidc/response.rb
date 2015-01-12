@@ -63,16 +63,15 @@ module OIDC
     def token_data
       issue_at = Time.now.to_i
       exp = issue_at + id_token_expire
-      return {
+      id_token = {
           :iss => issuer,
           :sub => owner.sub,
           :aud => @client_id,
           :exp => exp,
           :iat => issue_at,
           :nonce => @nonce,
-          :userinfo => userinfo
-
       }
+      id_token.merge!(userinfo)
     end
 
     # ownerの情報に対してscopeで指定された情報のみ返却

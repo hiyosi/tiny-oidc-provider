@@ -61,7 +61,9 @@ class OIDC::ResponseTest < Minitest::Test
   end
 
   def test_id_token_veryfy
-    response = OIDC::Response.new(@params)
+    params = @params
+    params[:scope] = 'openid email'
+    response = OIDC::Response.new(params)
     response.owner = @user
     uri = URI.parse(response.build_response)
     res_params = CGI.parse(uri.fragment)
@@ -78,7 +80,7 @@ class OIDC::ResponseTest < Minitest::Test
     assert header[:typ].present?
     assert header[:alg].present?
     assert payload[:sub].present?
-    assert payload[:userinfo].present?
+    assert payload[:email].present?
     assert public_key.verify('sha256', signature, input)
   end
 end
